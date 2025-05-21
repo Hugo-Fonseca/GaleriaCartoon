@@ -8,7 +8,7 @@ function Header() {
         <nav>
           <Link to="./Billy/billy-2001" className="btn btn-outline-light mx-1">Billy - 2001</Link>
           <Link to="./Ben10/ben10-2005" className="btn btn-outline-light mx-1">Ben 10 - 2005</Link>
-          <Link to="./Jake/jake-2010" className="btn btn-outline-light mx-1">Jake - 2010</Link>
+          <Link to="./Jake/jake-2010" className="btn btn-outline-light mx-1">Jake - 2010 </Link>
         </nav>
       </div>
     </header>
