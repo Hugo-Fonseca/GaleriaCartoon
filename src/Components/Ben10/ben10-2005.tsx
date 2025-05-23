@@ -162,15 +162,36 @@ const Ben10Page = () => {
       <div className="container text-center" style={{ marginTop: '40px' }}>
         <h2>Galería del personaje</h2>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
-        <img src="/images/ben10-1.jpg" alt="Ben 10 imagen 1" style={{ width: '200px', borderRadius: '8px' }} />
-        <img src="/images/ben10-2.jpg" alt="Ben 10 imagen 2" style={{ width: '200px', borderRadius: '8px' }} />
-        <img src="/images/ben10-3.jpg" alt="Ben 10 imagen 3" style={{ width: '200px', borderRadius: '8px' }} />
+        <img src="/Imagenes/Ben10-1.jpg" alt="Ben 10 imagen 1" style={{ width: '300px', borderRadius: '8px' }} />
+        <img src="/Imagenes/Ben10-2.webp" alt="Ben 10 imagen 2" style={{ width: '300px', borderRadius: '8px' }} />
+        <img src="/Imagenes/Ben10-3.jpg" alt="Ben 10 imagen 3" style={{ width: '300px', borderRadius: '8px' }} />
       </div>
+      </div>
+
+      {/* Informacion de la serie y produccion */}
+
+      <div className="container py-4">
+       <h2>Serie y Producción</h2>
+        <p style={{ fontSize: '1.1rem' }}>
+        La historia original de Ben 10, comúnmente llamada "Ben 10 clásico", sigue a Ben Tennyson, un niño de 10 años, 
+        durante un verano de campamento con su abuelo Max y su prima Gwen. En el primer episodio, 
+        Ben encuentra el Omnitrix, un reloj alienígena que le permite transformarse en 10 criaturas alienígenas diferentes. 
+        A medida que Ben aprende a controlar sus nuevos poderes, debe usar sus transformaciones para proteger a sus amigos y a la Tierra de diversas amenazas alienígenas y villanos.
+        </p>
+
+      <h4 style={{ marginTop: '20px' }}>Producción</h4>
+        <ul style={{ fontSize: '1.05rem', listStyleType: 'square', marginLeft: '20px' }}>
+        <li><strong>Creadores:</strong> "Man of Action" (grupo compuesto por Duncan Rouleau, Joe Casey, Joe Kelly y Steven T. Seagle)</li>
+        <li><strong>Estudio de animación:</strong> Cartoon Network Studios</li>
+        <li><strong>País de origen:</strong> Estados Unidos</li>
+        <li><strong>Fecha de estreno:</strong> 27 de diciembre de 2005</li>
+        <li><strong>Cadena de televisión:</strong> Cartoon Network</li>
+        <li><strong>Número de temporadas:</strong> 4 (en la serie original)</li>
+      </ul>
       </div>
 
     </div>
 
-    
   );
 };
 
