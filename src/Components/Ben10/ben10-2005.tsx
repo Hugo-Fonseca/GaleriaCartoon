@@ -162,9 +162,10 @@ const Ben10Page = () => {
       <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
         <h2>Galería del personaje</h2>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
-        <img src="/Imagenes/Ben10-1.jpg" alt="Ben 10 imagen 1" style={{ width: '300px', borderRadius: '8px' }} />
-        <img src="/Imagenes/Ben10-2.webp" alt="Ben 10 imagen 2" style={{ width: '300px', borderRadius: '8px' }} />
-        <img src="/Imagenes/Ben10-3.jpg" alt="Ben 10 imagen 3" style={{ width: '300px', borderRadius: '8px' }} />
+        <img src="/Imagenes/Ben10-1.jpg" alt="Ben 10 imagen 1" className="gallery-image" />
+<img src="/Imagenes/Ben10-2.webp" alt="Ben 10 imagen 2" className="gallery-image" />
+<img src="/Imagenes/Ben10-3.jpg" alt="Ben 10 imagen 3" className="gallery-image" />
+
       </div>
       </div>
 
