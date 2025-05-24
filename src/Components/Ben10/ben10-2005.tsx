@@ -121,7 +121,7 @@ const Ben10Page = () => {
     <div style={{ color: 'white', position: 'relative' }}>
       {/* Información del personaje Ben 10 */}
       <div className="container py-4 text-center">
-      <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px' }}>Ben 10</h1>
+      <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#297f00'}}>BEN 10</h1>
     </div>
 
       
@@ -159,7 +159,7 @@ const Ben10Page = () => {
       </div>
       
       {/* Galería de imágenes del protagonista */}
-      <div className="container text-center" style={{ marginTop: '40px' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
         <h2>Galería del personaje</h2>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
         <img src="/Imagenes/Ben10-1.jpg" alt="Ben 10 imagen 1" style={{ width: '300px', borderRadius: '8px' }} />
@@ -170,8 +170,10 @@ const Ben10Page = () => {
 
       {/* Informacion de la serie y produccion */}
 
-      <div className="container py-4">
+      <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
        <h2>Serie y Producción</h2>
+       </div>
+      <div className="container py-4">
         <p style={{ fontSize: '1.1rem' }}>
         La historia original de Ben 10, comúnmente llamada "Ben 10 clásico", sigue a Ben Tennyson, un niño de 10 años, 
         durante un verano de campamento con su abuelo Max y su prima Gwen. En el primer episodio, 
@@ -179,7 +181,7 @@ const Ben10Page = () => {
         A medida que Ben aprende a controlar sus nuevos poderes, debe usar sus transformaciones para proteger a sus amigos y a la Tierra de diversas amenazas alienígenas y villanos.
         </p>
 
-      <h4 style={{ marginTop: '20px' }}>Producción</h4>
+      <h4 style={{ marginTop: '20px', color: '#297f00' }}>Producción</h4>
         <ul style={{ fontSize: '1.05rem', listStyleType: 'square', marginLeft: '20px' }}>
         <li><strong>Creadores:</strong> "Man of Action" (grupo compuesto por Duncan Rouleau, Joe Casey, Joe Kelly y Steven T. Seagle)</li>
         <li><strong>Estudio de animación:</strong> Cartoon Network Studios</li>
