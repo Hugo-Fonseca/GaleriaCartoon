@@ -26,6 +26,32 @@ footer {
   font-size: 0.8rem;
 }
 
+/* Estilos base que conservan btn-outline-light */
+.cartoon-btn {
+  color: white;
+  border-color: white;
+  transition: all 0.3s ease;
+}
+
+.cartoon-btn:hover {
+  color: black !important;
+  border-color: transparent;
+}
+
+/* Colores por personaje */
+.billy:hover {
+  background-color: #ff69b4 !important; /* rosado */
+}
+
+.ben10:hover {
+  background-color: #00ff99 !important; /* verde */
+}
+
+.jake:hover {
+  background-color: #ffd700 !important; /* amarillo */
+}
+
+
 main {
   padding-top: 80px;  /* espacio para el header */
   padding-bottom: 60px; /* espacio para el footer */
