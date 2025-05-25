@@ -4,6 +4,7 @@ import HeroPage from './Components/Hero/hero';
 //import Billy
 import Ben10Page from './Components/Ben10/ben10-2005';
 import Footer from './Components/Footer/footer';
+import GameCanvas from './Components/Game/GameCanvas';
 //import Jake from './pages/Jake';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/Ben10/ben10-2005" element={<Ben10Page />} />
         {/* Redirección por defecto si alguien entra a una ruta no existente */}
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/juego" element={<GameCanvas />} />
       </Routes>
       <Footer />
     </Router>

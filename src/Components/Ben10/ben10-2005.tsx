@@ -9,100 +9,87 @@ const Ben10Page = () => {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const [soundRef, setSoundRef] = useState<THREE.Audio | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<THREE.Audio | null>(null);
 
   useEffect(() => {
-    if (!mountRef.current) return;
-    const currentMount = mountRef.current;
+  if (!mountRef.current) return;
+  const currentMount = mountRef.current;
 
-    const scene = new THREE.Scene();
-    scene.fog = new THREE.Fog(0x000000, 10, 30);
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.Fog(0x000000, 10, 30);
 
-    const camera = new THREE.PerspectiveCamera(
-      30,
-      currentMount.clientWidth / currentMount.clientHeight,
-      0.1,
-      1000
-    );
-    camera.position.set(0, 1.5, 4);
+  const camera = new THREE.PerspectiveCamera(
+    30,
+    currentMount.clientWidth / currentMount.clientHeight,
+    0.1,
+    1000
+  );
+  camera.position.set(0, 1.5, 4);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight * 0.6);
-    currentMount.appendChild(renderer.domElement);
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setSize(window.innerWidth, window.innerHeight * 0.6);
+  currentMount.appendChild(renderer.domElement);
 
-    // Luces
-    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-    const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
-    dirLight.position.set(3, 5, 2);
-    scene.add(dirLight);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.6));
+  const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+  dirLight.position.set(3, 5, 2);
+  scene.add(dirLight);
 
-    // OrbitControls limitados
-    const controls = new OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.enablePan = false;
-    controls.minDistance = 3;
-    controls.maxDistance = 6;
-    controls.minPolarAngle = Math.PI / 3;
-    controls.maxPolarAngle = Math.PI / 2;
+  const controls = new OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.enablePan = false;
+  controls.minDistance = 3;
+  controls.maxDistance = 6;
+  controls.minPolarAngle = Math.PI / 3;
+  controls.maxPolarAngle = Math.PI / 2;
 
-    // Audio
-    const listener = new THREE.AudioListener();
-    camera.add(listener);
-    const sound = new THREE.Audio(listener);
-    const audioLoader = new THREE.AudioLoader();
-    audioLoader.load("/Music.ogg", (buffer) => {
-      sound.setBuffer(buffer);
-      sound.setLoop(true);
-      sound.setVolume(0.5);
-      setSoundRef(sound);
-    });
+  const listener = new THREE.AudioListener();
+  camera.add(listener);
+  const sound = new THREE.Audio(listener);
+  const audioLoader = new THREE.AudioLoader();
+  audioLoader.load("/Music/Ben-10-In.mp3", (buffer) => {
+    sound.setBuffer(buffer);
+    sound.setLoop(true);
+    sound.setVolume(0.5);
+    setSoundRef(sound);
+    audioRef.current = sound; // ← GUARDAR REFERENCIA
+  });
 
-    // Cargar modelo
-    const loader = new GLTFLoader();
-    loader.load(
-      "/3DModels/ben10original.glb",
-      (gltf) => {
-        const model = gltf.scene;
-        model.scale.set(0.5, 0.5, 0.5);
-        scene.add(model);
-      },
-      undefined,
-      (error) => {
-        console.error("Error al cargar modelo:", error);
-      }
-    );
+  const loader = new GLTFLoader();
+  loader.load("/3DModels/ben10original.glb", (gltf) => {
+    const model = gltf.scene;
+    model.scale.set(0.5, 0.5, 0.5);
+    scene.add(model);
+  });
 
-    // Sistema de partículas personalizado para Ben10
-    const particleCount = 500;
-    const particlesGeometry = new THREE.BufferGeometry();
-    const positions = new Float32Array(particleCount * 3);
-    for (let i = 0; i < particleCount * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 8;
+  const particleCount = 500;
+  const particlesGeometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+  for (let i = 0; i < particleCount * 3; i++) {
+    positions[i] = (Math.random() - 0.5) * 8;
+  }
+  particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+
+  const particlesMaterial = new THREE.PointsMaterial({ color: 0x00ff99, size: 0.08 });
+  const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+  scene.add(particles);
+
+  const animate = () => {
+    requestAnimationFrame(animate);
+    particles.rotation.y += 0.001;
+    controls.update();
+    renderer.render(scene, camera);
+  };
+  animate();
+
+  return () => {
+    if (audioRef.current && audioRef.current.isPlaying) {
+      audioRef.current.stop(); // ← DETENER AUDIO
     }
-    particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-
-    const particlesMaterial = new THREE.PointsMaterial({
-      color: 0x00ff99,
-      size: 0.08,
-    });
-
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
-
-    // Animación
-    const animate = () => {
-      requestAnimationFrame(animate);
-      particles.rotation.y += 0.001; // rotación suave
-      controls.update();
-      renderer.render(scene, camera);
-    };
-    animate();
-
-    // Cleanup
-    return () => {
-      renderer.dispose();
-      if (currentMount) currentMount.removeChild(renderer.domElement);
-    };
-  }, []);
+    renderer.dispose();
+    if (currentMount) currentMount.removeChild(renderer.domElement);
+  };
+}, []);
 
   // Handlers de botones
   const handlePlay = () => {
