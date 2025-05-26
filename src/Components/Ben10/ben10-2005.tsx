@@ -82,7 +82,7 @@ const Ben10Page = () => {
     // Cubo delgado con texturas en sus caras
     const boxWidth = 1;
     const boxHeight = 1;
-    const boxDepth = 0.5;
+    const boxDepth = 0.05;
     const boxGeometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
 
     const loaderTexture = new THREE.TextureLoader();
@@ -181,6 +181,32 @@ const Ben10Page = () => {
           <img src="/Imagenes/Ben10-3.jpg" alt="Ben 10 imagen 3" className="gallery-image" />
         </div>
       </div>
+
+      {/* Frases icónicas de Ben 10 */}
+<div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
+  <h2>Frases icónicas</h2>
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '20px',
+    marginTop: '20px'
+  }}>
+    {[
+      { label: '¡Hora de ser héroe!', file: '/Music/hora-ser-heroe.mp3' },
+      { label: '¡Omnitrix, Sonidos!', file: '/Music/Omnitrix-sounds.mp3' },
+    ].map((sound, index) => {
+      const audio = new Audio(sound.file);
+      return (
+        <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontSize: '1.1rem' }}>{sound.label}</span>
+          <button onClick={() => audio.play()}>▶️ Reproducir</button>
+          <button onClick={() => audio.pause()}>⏸️ Pausar</button>
+        </div>
+      );
+    })}
+  </div>
+</div>
 
       {/* Información de la serie */}
       <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>

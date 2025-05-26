@@ -17,7 +17,7 @@ const JakePage = () => {
 
     // Escena y cámara
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xFFFFFF);
+    scene.background = new THREE.Color(0x67D5F7);
     // scene.fog = new THREE.Fog(0x000000, 10, 30);
     const camera = new THREE.PerspectiveCamera(
       30,
@@ -33,9 +33,9 @@ const JakePage = () => {
     currentMount.appendChild(renderer.domElement);
 
     // Iluminación
-    scene.add(new THREE.AmbientLight(0xffffff, 0.9));
-    const dirLight = new THREE.DirectionalLight(0xffffff, 0.9);
-    dirLight.position.set(3000, 5000, 2000);
+    scene.add(new THREE.AmbientLight(0xffffff, 10));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 20);
+    dirLight.position.set(3, 5, 5);
     scene.add(dirLight);
 
     // Controles
@@ -76,14 +76,14 @@ const JakePage = () => {
       positions[i] = (Math.random() - 0.5) * 8;
     }
     particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    const particlesMaterial = new THREE.PointsMaterial({ color: 0x00ff99, size: 0.08 });
+    const particlesMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.08 });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
     // Cubo delgado con texturas en sus caras
     const boxWidth = 1;
     const boxHeight = 1;
-    const boxDepth = 0.5;
+    const boxDepth = 0.05;
     const boxGeometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
 
     const loaderTexture = new THREE.TextureLoader();
