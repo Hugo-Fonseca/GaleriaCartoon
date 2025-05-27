@@ -34,10 +34,22 @@ const JakePage = () => {
     currentMount.appendChild(renderer.domElement);
 
     // Iluminación
-    scene.add(new THREE.AmbientLight(0xffffff, 10));
-    const directionLight = new THREE.DirectionalLight(0xffffff, 20);
-    directionLight.position.set(3, 5, 5);
-    scene.add(directionLight);
+    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    const directionLightTrasera = new THREE.DirectionalLight(0xffffff, 15);
+    const directionLightFrontal = new THREE.DirectionalLight(0xffffff, 15);
+    const directionLightLateral1 = new THREE.DirectionalLight(0xffffff, 15);
+    const directionLightLateral2 = new THREE.DirectionalLight(0xffffff, 15);
+
+
+    directionLightTrasera.position.set(0, 0, -100); //Luz Trasera
+    directionLightTrasera.position.set(0, 0, 100);// Luz Frontal
+    directionLightLateral1.position.set(1, 0, 0);//Luz Lateral derecha
+    directionLightLateral2.position.set(-1, 0, -1); //Luz laterael izquierda
+
+
+
+
+    scene.add(directionLightTrasera,directionLightFrontal,directionLightLateral1,directionLightLateral2);
 
     // Controles
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -157,7 +169,7 @@ const JakePage = () => {
         padding: '10px',
         borderRadius: '8px'
       }}>
-        <button onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir </button>
+        <button className="jake-button" onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir </button>
         <button onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar </button>
       </div>
 
@@ -211,7 +223,7 @@ const JakePage = () => {
       return (
         <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{ fontSize: '1.1rem' }}>{sound.label}</span>
-          <button onClick={() => audio.play()}>▶️ Reproducir</button>
+          <button className="jake-button"onClick={() => audio.play()}>▶️ Reproducir</button>
           <button onClick={() => audio.pause()}>⏸️ Pausar</button>
         </div>
       );

@@ -78,7 +78,7 @@ const GameCanvas = () => {
     const createObstacle = () => {
       const obstacle = new THREE.Mesh(obstacleGeometry, obstacleMaterial);
       obstacle.position.x = Math.random() * 6 - 3; // Posición X aleatoria entre -3 y 3
-      obstacle.position.y = 3; // Aparece en la parte superior
+      obstacle.position.y = 7; // Aparece en la parte superior
       obstacle.castShadow = true;
       scene.add(obstacle);
       obstacles.push(obstacle);
@@ -109,15 +109,65 @@ const GameCanvas = () => {
       }, 1000);
     };
 
+
+
+
     // === CONTROLES DEL JUGADOR CON FLECHAS ===
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') {
-        player.position.x = Math.max(player.position.x - 0.5, -3);
-      } else if (event.key === 'ArrowRight') {
-        player.position.x = Math.min(player.position.x + 0.5, 3);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
+
+let speed = 0.5;  // Velocidad base
+const maxSpeed = 2;  // Velocidad máxima
+let keyPressTime = 0;  // Cuenta cuánto tiempo se mantiene presionada la tecla
+let lastKeyPressTime = 0;  // Mide el intervalo entre las pulsaciones rápidas
+const maxPressTime = 400; // Tiempo máximo en milisegundos para aumentar la velocidad con la tecla presionada
+
+const speedIncreaseRate = 0.1; // Tasa de incremento de velocidad al presionar rápidamente
+const speedResetTime = 200; // Tiempo máximo entre pulsaciones rápidas en milisegundos
+
+const handleKeyDown = (event: KeyboardEvent) => {
+  const now = Date.now();
+
+  // Lógica de incremento de velocidad por mantener la tecla presionada
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    keyPressTime += 1;
+    if (keyPressTime > maxPressTime) {
+      speed = Math.min(speed * 1.1, maxSpeed);  // Aumentar la velocidad, sin q exceda maxSpeed
+    }
+
+    // Lógica de incremento de velocidad por presionar rápidamente
+    const timeSinceLastPress = now - lastKeyPressTime;
+    if (timeSinceLastPress < speedResetTime) {  // Si el intervalo entre pulsaciones es menor que speedResetTime
+      speed = Math.min(speed + speedIncreaseRate, maxSpeed);  // Incrementa la velocidad, pero sin pasar la máxima velocidad
+    }
+
+    lastKeyPressTime = now;  // Actualiza el tiempo de la última pulsación
+  }
+
+  if (event.key === 'ArrowLeft') { //Si el jugador toca la tecla de la izquierda se ejecuta
+    player.position.x = Math.max(player.position.x - speed, -3); //El jugador se mueve hacia la izquierda
+  } else if (event.key === 'ArrowRight') { //Si el jugador toca la tecla de la derecha
+    player.position.x = Math.min(player.position.x + speed, 3); //El jugador se mueve hacia la derecha
+  }
+};
+
+const handleKeyUp = (event: KeyboardEvent) => { //Se va a ejercutar cuando el jugador suelte la tecla q estaba oprimiendo
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    keyPressTime = 0;  // Resetea el tiempo cuando se suelta la tecla
+    speed = 0.5;  // Restablece la velocidad a la base
+  }
+};
+
+window.addEventListener('keydown', handleKeyDown);
+window.addEventListener('keyup', handleKeyUp);
+
+
+
+
+
+
+
+
+
+
 
     // === ADAPTAR RENDERIZADOR AL REDIMENSIONAR VENTANA ===
     const handleResize = () => {

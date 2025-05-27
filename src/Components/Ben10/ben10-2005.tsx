@@ -24,7 +24,7 @@ const Ben10Page = () => {
       0.1,
       1000
     );
-    camera.position.set(0, 1.5, 4);
+    camera.position.set(0, 0, 4);
 
     // Renderizado
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -64,6 +64,7 @@ const Ben10Page = () => {
     loader.load("/3DModels/ben10original.glb", (gltf) => {
       const model = gltf.scene;
       model.scale.set(0.5, 0.5, 0.5);
+      model.position.set(0, -0.5, 0);
       scene.add(model);
     });
 
@@ -153,8 +154,8 @@ const Ben10Page = () => {
         padding: '10px',
         borderRadius: '8px'
       }}>
-        <button onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir</button>
-        <button onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar</button>
+        <button className="ben10-button" onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir</button>
+        <button  onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar</button>
       </div>
 
       {/* Descripción del personaje */}
@@ -200,7 +201,7 @@ const Ben10Page = () => {
       return (
         <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{ fontSize: '1.1rem' }}>{sound.label}</span>
-          <button onClick={() => audio.play()}>▶️ Reproducir</button>
+          <button  className="ben10-button" onClick={() => audio.play()}>▶️ Reproducir</button>
           <button onClick={() => audio.pause()}>⏸️ Pausar</button>
         </div>
       );
