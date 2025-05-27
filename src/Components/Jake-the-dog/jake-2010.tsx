@@ -18,6 +18,7 @@ const JakePage = () => {
     // Escena y cámara
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x67D5F7);
+
     // scene.fog = new THREE.Fog(0x000000, 10, 30);
     const camera = new THREE.PerspectiveCamera(
       30,
@@ -34,9 +35,9 @@ const JakePage = () => {
 
     // Iluminación
     scene.add(new THREE.AmbientLight(0xffffff, 10));
-    const dirLight = new THREE.DirectionalLight(0xffffff, 20);
-    dirLight.position.set(3, 5, 5);
-    scene.add(dirLight);
+    const directionLight = new THREE.DirectionalLight(0xffffff, 20);
+    directionLight.position.set(3, 5, 5);
+    scene.add(directionLight);
 
     // Controles
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -76,7 +77,7 @@ const JakePage = () => {
       positions[i] = (Math.random() - 0.5) * 8;
     }
     particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    const particlesMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.08 });
+    const particlesMaterial = new THREE.PointsMaterial({ color: 0x00ff99, size: 0.08 });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
@@ -140,7 +141,7 @@ const JakePage = () => {
     <div style={{ color: 'white', position: 'relative' }}>
       {/* Título principal */}
       <div className="container py-4 text-center">
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#FCC224' }}>Jake el perro</h1>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#FCC224' }}>Jake el Perro</h1>
       </div>
 
       {/* Contenedor 3D */}
@@ -163,20 +164,25 @@ const JakePage = () => {
       {/* Descripción del personaje */}
       <div className="container py-4">
         <p style={{ fontSize: '1.1rem' }}>
-          Ben Tennyson es un niño común de 10 años que descubre un poderoso dispositivo alienígena llamado Omnitrix...
+          Jake es un híbrido entre perro y cambiaformas, al que otros llaman "perro mágico". 
+          Es el compañero fiel de Finn , su mejor amigo y hermano adoptivo.        
         </p>
         <ul style={{ textAlign: 'left', display: 'inline-block', marginTop: '10px' }}>
-          <li>Puede transformarse en más de 10 alienígenas diferentes.</li>
-          <li>Es valiente y protector con su familia y amigos.</li>
-          <li>Su transformación tiene un límite de tiempo.</li>
-          <li>Viaja en verano con su prima Gwen y su abuelo Max.</li>
-          <li>Aprende sobre responsabilidad a través de sus poderes.</li>
-          <li>El Omnitrix es buscado por múltiples villanos intergalácticos.</li>
+          <li>Puede transformarse en todo tipo de formas fantásticas con sus poderes, 
+            pero normalmente adopta la forma de un bulldog amarillo anaranjado de tamaño promedio.</li>
+          <li>Es un cantante y bailarín nato; de hecho, sus primeras palabras fueron una canción y un baile.</li>
+          <li>Sabe tocar el violín.</li>
+          <li>Tiene una novia que es un unicornio llamado Arcoiris, con la que tiene 5 cachorros
+            (Charlie, Tv, Viola, Jake Jr y  Kim Kil Whan).</li>
+          <li>Hijo de dos perros investigadores llamados Joshua y Margaret, luego de su muerte, se
+            encargó de cuidar a Finn y se mudaron a la casa del árbol.</li>
+          <li>Es muy bueno en el juego "guerra de tarjetas", pero es muy may perdedor y mal ganador.</li>
+          <li>Es el rey de besutiful.</li>
         </ul>
       </div>
 
       {/* Galería de imágenes */}
-      <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: '#FCC224' }}>
         <h2>Galería del personaje</h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
           <img src="/img/jake.gif" alt="Jake el perro imagen 1" className="gallery-image" />
@@ -186,16 +192,17 @@ const JakePage = () => {
       </div>
 
       {/* Información de la serie */}
-      <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: '#FCC224' }}>
         <h2>Serie y Producción</h2>
       </div>
       <div className="container py-4">
         <p style={{ fontSize: '1.1rem' }}>
-          La historia original de Ben 10, comúnmente llamada "Ben 10 clásico", sigue a Ben Tennyson...
+          Hora de aventura trata sobre un niño llamado Finn y su perro mágico que cambia de forma, Jake , 
+          quienes viven muchas aventuras extrañas en la Tierra de Ooo .
         </p>
-        <h4 style={{ marginTop: '20px', color: '#297f00' }}>Producción</h4>
+        <h4 style={{ marginTop: '20px', color: '#FCC224' }}>Producción</h4>
         <ul style={{ fontSize: '1.05rem', listStyleType: 'square', marginLeft: '20px' }}>
-          <li><strong>Creadores:</strong> "Man of Action" (Duncan Rouleau, Joe Casey, Joe Kelly, Steven T. Seagle)</li>
+          <li><strong>Creador:</strong> Pendleton Ward</li>
           <li><strong>Estudio:</strong> Cartoon Network Studios</li>
           <li><strong>País:</strong> Estados Unidos</li>
           <li><strong>Estreno:</strong> 5 de abril de 2010</li>
