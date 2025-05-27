@@ -52,7 +52,7 @@ const BillyPage = () => {
     camera.add(listener);
     const sound = new THREE.Audio(listener);
     const audioLoader = new THREE.AudioLoader();
-    audioLoader.load("/Music/Billy-Intro.mp3", (buffer) => { //Se carga un archivo de sonido 
+    audioLoader.load("/Music/Asustado-Billy.mp3", (buffer) => { //Se carga un archivo de sonido 
       sound.setBuffer(buffer);
       sound.setLoop(false); //No deja q se repita en bucle
       sound.setVolume(0.5); //Ajusta el volumen del audio
@@ -89,8 +89,8 @@ const BillyPage = () => {
 
     const loaderTexture = new THREE.TextureLoader(); 
     
-    const textureLeft = loaderTexture.load("/img/BillyMandy.png"); //Se cargan imágenes en las caras del cubo
-    const textureRight = loaderTexture.load("/img/MascotaBilly.webp"); //Lo de up
+    const textureLeft = loaderTexture.load("/img/BillyYMandy_logo.PNG"); //Se cargan imágenes en las caras del cubo
+    const textureRight = loaderTexture.load("/img/manoDelTerror.PNG"); //Lo de up
 
     //Se definen los materiales para cada una de las caras del cubo
 
@@ -182,9 +182,9 @@ const BillyPage = () => {
       <div className="container text-center" style={{ marginTop: '40px', color: '#f6a0a5' }}>
         <h2>Galería del personaje</h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
-          <img src="/img/Billy1.gif" alt="Ben 10 imagen 1" className="gallery-image" />
-          <img src="/img/Billy2.gif" alt="Ben 10 imagen 2" className="gallery-image" />
-          <img src="/img/Billy3.gif" alt="Ben 10 imagen 3" className="gallery-image" />
+          <img src="/Imagenes/Billy1.jpg" alt="Billy imagen 1" className="gallery-image" />
+          <img src="/Imagenes/Billy2.jpg" alt="Billy imagen 2" className="gallery-image" />
+          <img src="/Imagenes/Billy3.jpg" alt="Billy imagen 3" className="gallery-image" />
         </div>
       </div>
 
@@ -199,8 +199,7 @@ const BillyPage = () => {
     marginTop: '20px'
   }}>
     {[
-      { label: '¡No, no, no es cierto!', file: '/Music/BillyAudio1.mp3' },
-      { label: '¡Qué alguien me ayude!', file: '/Music/BillyAudio3.mp3' },
+      { label: '¡Nos destruiran a Todos!', file: '/Music/Billy-Todos.mp3' },
     ].map((sound, index) => { {/*Se recorre un arreglo con objetos q contiene la frase (label) y el archivo de audio (file) */}
       const audio = new Audio(sound.file);
       return (
