@@ -77,7 +77,7 @@ const JakePage = () => {
       positions[i] = (Math.random() - 0.5) * 8;
     }
     particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    const particlesMaterial = new THREE.PointsMaterial({ color: 0x00ff99, size: 0.08 });
+    const particlesMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.08 });
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles);
 
@@ -190,6 +190,35 @@ const JakePage = () => {
           <img src="/img/jake3.gif" alt="Jake el perro imagen 3" className="gallery-image" />
         </div>
       </div>
+
+            {/* Frases icónicas de Jake*/}
+<div className="container text-center" style={{ marginTop: '40px', color:' #FCC224' }}>
+  <h2>Frases icónicas</h2>
+  <div style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '20px',
+    marginTop: '20px'
+  }}>
+    {[
+      { label: '¡Ay no, es una cabra muerta mi hermano!', file: '/Music/es-una-cabra-muerta-mi-hermano.mp3' },
+      { label: '¡Cobijita Finn!', file: '/Music/Jake y su cobijita (estoy malito).mp3' },
+      { label: '¡Yo vivo de mi público!', file: '/Music/Yo-vivo-de-mi-público-fino-y-conocedor.mp3' },
+      { label: '¡Como en una isla tropical!', file: '/Music/como-una-isla-tropical.mp3' },
+    ].map((sound, index) => {
+      const audio = new Audio(sound.file);
+      return (
+        <div key={index} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span style={{ fontSize: '1.1rem' }}>{sound.label}</span>
+          <button onClick={() => audio.play()}>▶️ Reproducir</button>
+          <button onClick={() => audio.pause()}>⏸️ Pausar</button>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
 
       {/* Información de la serie */}
       <div className="container text-center" style={{ marginTop: '40px', color: '#FCC224' }}>
