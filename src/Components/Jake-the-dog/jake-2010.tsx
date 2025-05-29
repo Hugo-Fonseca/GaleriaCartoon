@@ -173,11 +173,45 @@ const JakePage = () => {
         <button onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar </button>
       </div>
 
+      {/* Controles de navegación */}
+      <div style={{
+  position: 'absolute',
+  top: 10,
+  left: 0,
+  right: 0,
+  zIndex: 1,
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: '10px 20px',
+  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  borderRadius: '8px',
+}}>
+
+  <div>
+    <button className="ben10-button" onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir</button>
+    <button onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar</button>
+  </div>
+  <div>
+    <button
+      className="ben10-button"
+      onClick={() => {
+        const element = document.getElementById('descripcion');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }}
+    >
+      👇 Ver información
+    </button>
+  </div>
+</div>
+
       {/* Descripción del personaje */}
-      <div className="container py-4">
+      <div id="descripcion" className="container py-4">
         <p style={{ fontSize: '1.1rem' }}>
-          Jake es un híbrido entre perro y cambiaformas, al que otros llaman "perro mágico". 
-          Es el compañero fiel de Finn , su mejor amigo y hermano adoptivo.        
+          Jake es un híbrido entre perro y cambiaformas, al que otros llaman "perro mágico".
+          Es el compañero fiel de Finn, su mejor amigo y hermano adoptivo.
         </p>
         <ul style={{ textAlign: 'left', display: 'inline-block', marginTop: '10px' }}>
           <li>Puede transformarse en todo tipo de formas fantásticas con sus poderes, 

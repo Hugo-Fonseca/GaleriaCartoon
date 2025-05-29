@@ -158,20 +158,54 @@ const Ben10Page = () => {
         <button  onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar</button>
       </div>
 
+      {/* Controles de navegación */}
+      <div style={{
+  position: 'absolute',
+  top: 10,
+  left: 0,
+  right: 0,
+  zIndex: 1,
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: '10px 20px',
+  backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  borderRadius: '8px',
+}}>
+
+  <div>
+    <button className="ben10-button" onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir</button>
+    <button onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar</button>
+  </div>
+  <div>
+    <button
+      className="ben10-button"
+      onClick={() => {
+        const element = document.getElementById('descripcion');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }}
+    >
+      👇 Ver información
+    </button>
+  </div>
+</div>
+
       {/* Descripción del personaje */}
-      <div className="container py-4">
-        <p style={{ fontSize: '1.1rem' }}>
-          Ben Tennyson es un niño común de 10 años que descubre un poderoso dispositivo alienígena llamado Omnitrix...
-        </p>
-        <ul style={{ textAlign: 'left', display: 'inline-block', marginTop: '10px' }}>
-          <li>Puede transformarse en más de 10 alienígenas diferentes.</li>
-          <li>Es valiente y protector con su familia y amigos.</li>
-          <li>Su transformación tiene un límite de tiempo.</li>
-          <li>Viaja en verano con su prima Gwen y su abuelo Max.</li>
-          <li>Aprende sobre responsabilidad a través de sus poderes.</li>
-          <li>El Omnitrix es buscado por múltiples villanos intergalácticos.</li>
-        </ul>
-      </div>
+      <div id="descripcion" className="container py-4">
+  <p style={{ fontSize: '1.1rem' }}>
+    Ben Tennyson es un niño común de 10 años que descubre un poderoso dispositivo alienígena llamado Omnitrix...
+  </p>
+  <ul style={{ textAlign: 'left', display: 'inline-block', marginTop: '10px' }}>
+    <li>Puede transformarse en más de 10 alienígenas diferentes.</li>
+    <li>Es valiente y protector con su familia y amigos.</li>
+    <li>Su transformación tiene un límite de tiempo.</li>
+    <li>Viaja en verano con su prima Gwen y su abuelo Max.</li>
+    <li>Aprende sobre responsabilidad a través de sus poderes.</li>
+    <li>El Omnitrix es buscado por múltiples villanos intergalácticos.</li>
+  </ul>
+</div>
 
       {/* Galería de imágenes */}
       <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
