@@ -33,8 +33,11 @@ const BillyPage = () => {
     currentMount.appendChild(renderer.domElement); //El renderizado se va a ajustar al dom del contenedor
 
     // Iluminación
-    scene.add(new THREE.AmbientLight(0xffffff, 0.6)); //Se agrega luz ambiental para iluminar de manera uniforme
-    const dirLight = new THREE.DirectionalLight(0xffffff, 0.6); //Se agrega luz direccional que tiene una posicion y una intensidad
+    scene.add(new THREE.AmbientLight(0xffffff, 3)); //Se agrega luz ambiental para iluminar de manera uniforme
+    const dirLight = new THREE.DirectionalLight(0xffffff, 3); //Se agrega luz direccional que tiene una posicion y una intensidad
+    const directionLightLateral1 = new THREE.DirectionalLight(0xffffff, 7);
+
+    directionLightLateral1.position.set(1, 0, 0);//Luz Lateral derecha
     dirLight.position.set(3, 5, 2); 
     scene.add(dirLight);
 
@@ -77,7 +80,7 @@ const BillyPage = () => {
       positions[i] = (Math.random() - 0.5) * 8; //Calcula un espacio random para q se generen
     }
     particlesGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
-    const particlesMaterial = new THREE.PointsMaterial({ color: 0xff69b4, size: 0.08 }); //Se le asigna el color rosa y un tamaño
+    const particlesMaterial = new THREE.PointsMaterial({ color: 0xB00058, size: 0.08 }); //Se le asigna el color rosa y un tamaño
     const particles = new THREE.Points(particlesGeometry, particlesMaterial);
     scene.add(particles); //Se agregan a la escena principal 
 
