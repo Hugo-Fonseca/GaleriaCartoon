@@ -11,9 +11,9 @@ function Header() {
           <Link to="/Billy/billy-2001" className="btn btn-outline-light cartoon-btn billy mx-1">Billy - 2001</Link>
           <Link to="/Ben10/ben10-2005" className="btn btn-outline-light cartoon-btn ben10 mx-1">Ben 10 - 2005</Link>
           <Link to="/Jake-the-dog/jake-2010" className="btn btn-outline-light cartoon-btn jake mx-1">Jake - 2010</Link>
-          <Link to="/juego" className="btn btn-outline-light cartoon-btn juego mx-1">Juego</Link>
-          <Link to ="/flappy-fuego" className="btn btn-outline-light cartoon-btn flappy mx-1">Flappy Fuego</Link>
-          
+          <Link to="/juego" className="btn btn-outline-light cartoon-btn juego mx-1">Juego Cubos</Link>
+          <Link to="/jump" className="btn btn-outline-light cartoon-btn jump mx-1">Jump Juego</Link>
+
         </nav>
       </div>
     </header>
