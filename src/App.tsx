@@ -6,6 +6,7 @@ import Ben10Page from './Components/Ben10/ben10-2005';
 import Footer from './Components/Footer/footer';
 import GameCanvas from './Components/Game/GameCanvas';
 import JakePage from './Components/Jake-the-dog/jake-2010';
+import FlappyGame from './Components/Flappy_Fuego/FlappyGame';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         {/* Redirección por defecto si alguien entra a una ruta no existente */}
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/juego" element={<GameCanvas />} />
+        <Route path="/flappy-fuego" element={<FlappyGame />} />
+        {/* Puedes agregar más rutas aquí */}
       </Routes>
       <Footer />
     </Router>

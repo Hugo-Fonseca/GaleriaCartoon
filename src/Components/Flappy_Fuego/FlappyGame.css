@@ -1,0 +1,11 @@
+.flappy-container {
+  position: relative;
+}
+
+.scoreboard {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-family: sans-serif;
+}
