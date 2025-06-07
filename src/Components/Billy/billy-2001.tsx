@@ -145,7 +145,7 @@ const BillyPage = () => {
      <div style={{ color: 'white', position: 'relative' }}> {/*Renderiza el titulo"*/ } 
       {/* Título principal */}
       <div className="container py-4 text-center">
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#f6a0a5' }}>Billy</h1>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#F98492' }}>BILLY</h1>
       </div>
 
       {/* Contenedor 3D */}
@@ -181,12 +181,12 @@ const BillyPage = () => {
 }}>
 
   <div>
-    <button className="ben10-button" onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir</button>
+    <button className="billy-button " onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir</button>
     <button onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar</button>
   </div>
   <div>
     <button
-      className="ben10-button"
+      className="billy-button "
       onClick={() => {
         const element = document.getElementById('descripcion');
         if (element) {
@@ -216,17 +216,17 @@ const BillyPage = () => {
       </div>
 
       {/* Galería de imágenes */}
-      <div className="container text-center" style={{ marginTop: '40px', color: '#f6a0a5' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: '#F98492' }}>
         <h2>Galería del personaje</h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
-          <img src="/Imagenes/Billy1.jpg" alt="Billy imagen 1" className="gallery-image" />
+          <img src="/Imagenes/BILLY-NOS-DESTRUIRAN-A-TODOS1.gif" alt="Billy imagen 1" className="gallery-image" />
           <img src="/Imagenes/Billy2.jpg" alt="Billy imagen 2" className="gallery-image" />
           <img src="/Imagenes/Billy3.jpg" alt="Billy imagen 3" className="gallery-image" />
         </div>
       </div>
 
       {/* Frases icónicas de Billy */}
-<div className="container text-center" style={{ marginTop: '40px', color: '#f6a0a5' }}>
+<div className="container text-center" style={{ marginTop: '40px', color: '#F98492' }}>
   <h2>Frases icónicas</h2>
   <div style={{
     display: 'flex',
@@ -251,14 +251,14 @@ const BillyPage = () => {
 </div>
 
       {/* Información de la serie */}
-      <div className="container text-center" style={{ marginTop: '40px', color: '#f6a0a5' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: '#F98492' }}>
         <h2>Serie y Producción</h2>
       </div>
       <div className="container py-4">
         <p style={{ fontSize: '1.1rem' }}>
           Las sombrías aventuras de Billy y Mandy , dos niños, que, tras ganar un extraño "juego" a la Muerte, terminan convirtiéndolo en su esclavo.
         </p>
-        <h4 style={{ marginTop: '20px', color: '#f6a0a5' }}>Producción</h4>
+        <h4 style={{ marginTop: '20px', color: '#F98492' }}>Producción</h4>
         <ul style={{ fontSize: '1.05rem', listStyleType: 'square', marginLeft: '20px' }}>
           <li><strong>Creador:</strong> Maxwell Atoms (1973 - presente))</li>
           <li><strong>Estudio:</strong> Cartoon Network Studios</li>

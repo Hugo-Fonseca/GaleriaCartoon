@@ -153,7 +153,7 @@ const JakePage = () => {
     <div style={{ color: 'white', position: 'relative' }}>
       {/* Título principal */}
       <div className="container py-4 text-center">
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#FCC224' }}>Jake el Perro</h1>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#FCC224' }}>JAKE EL PERRO</h1>
       </div>
 
       {/* Contenedor 3D */}
@@ -189,12 +189,12 @@ const JakePage = () => {
 }}>
 
   <div>
-    <button className="ben10-button" onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir</button>
+    <button className="jake-button" onClick={handlePlay} disabled={isPlaying}>▶️ Reproducir</button>
     <button onClick={handlePause} disabled={!isPlaying}>⏸️ Pausar</button>
   </div>
   <div>
     <button
-      className="ben10-button"
+      className="jake-button"
       onClick={() => {
         const element = document.getElementById('descripcion');
         if (element) {
@@ -228,7 +228,7 @@ const JakePage = () => {
       </div>
 
       {/* Galería de imágenes */}
-      <div className="container text-center" style={{ marginTop: '40px', color: '#FCC224' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: ' #FFC002' }}>
         <h2>Galería del personaje</h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
           <img src="/img/jake.gif" alt="Jake el perro imagen 1" className="gallery-image" />
@@ -238,7 +238,7 @@ const JakePage = () => {
       </div>
 
             {/* Frases icónicas de Jake*/}
-<div className="container text-center" style={{ marginTop: '40px', color:' #FCC224' }}>
+<div className="container text-center" style={{ marginTop: '40px', color:' #FFC002' }}>
   <h2>Frases icónicas</h2>
   <div style={{
     display: 'flex',
@@ -248,10 +248,12 @@ const JakePage = () => {
     marginTop: '20px'
   }}>
     {[
-      { label: '¡Ay no, es una cabra muerta mi hermano!', file: '/Music/es-una-cabra-muerta-mi-hermano.mp3' },
-      { label: '¡Cobijita Finn!', file: '/Music/Jake y su cobijita (estoy malito).mp3' },
-      { label: '¡Yo vivo de mi público!', file: '/Music/Yo-vivo-de-mi-público-fino-y-conocedor.mp3' },
-      { label: '¡Como en una isla tropical!', file: '/Music/como-una-isla-tropical.mp3' },
+      { label: '¡Ay no, es una cabra muerta mi hermano!', file: '/Music/JAKEFRASE-CABRA-MUERTA.mp3' },
+      { label: '¡Cobijita Finn!', file: '/Music/ESTOY-MALITOOO.mp3' },
+      { label: '¡Yo vivo de mi público!', file: '/Music/YO-VIVO-DE-MI-PUBLICO.mp3' },
+      { label: '¡Como en una isla tropical!', file: '/Music/COMO-UNA-ISLA-TROPICAL2.mp3' },
+
+      
     ].map((sound, index) => {
       const audio = new Audio(sound.file);
       return (
@@ -267,7 +269,7 @@ const JakePage = () => {
 
 
       {/* Información de la serie */}
-      <div className="container text-center" style={{ marginTop: '40px', color: '#FCC224' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: ' #FFC002' }}>
         <h2>Serie y Producción</h2>
       </div>
       <div className="container py-4">
@@ -275,13 +277,28 @@ const JakePage = () => {
           Hora de aventura trata sobre un niño llamado Finn y su perro mágico que cambia de forma, Jake , 
           quienes viven muchas aventuras extrañas en la Tierra de Ooo .
         </p>
-        <h4 style={{ marginTop: '20px', color: '#FCC224' }}>Producción</h4>
+        <h4 style={{ marginTop: '20px', color: ' #FFC002' }}>Producción</h4>
         <ul style={{ fontSize: '1.05rem', listStyleType: 'square', marginLeft: '20px' }}>
           <li><strong>Creador:</strong> Pendleton Ward</li>
           <li><strong>Estudio:</strong> Cartoon Network Studios</li>
           <li><strong>País:</strong> Estados Unidos</li>
           <li><strong>Estreno:</strong> 5 de abril de 2010</li>
           <li><strong>Temporadas:</strong> 10</li>
+          <li><strong>Especiales:</strong> 
+            <br></br>
+            - Come along with me
+            <br></br>
+            - Finn & Jake are dead
+            <br></br>
+            - Distant lands
+            <br></br>
+            - Dimonds and lemons
+            <br></br>
+            - Obsidian
+            <br></br>
+            - Wizard city
+          </li>
+          <li><strong>Spin offs:</strong> Adventure Time: Fionna & Cake</li>
         </ul>
       </div>
     </div>

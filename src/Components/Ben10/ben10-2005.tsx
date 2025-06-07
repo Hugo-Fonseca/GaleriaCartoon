@@ -32,8 +32,8 @@ const Ben10Page = () => {
     currentMount.appendChild(renderer.domElement);
 
     // Iluminación
-    scene.add(new THREE.AmbientLight(0xffffff, 0.6));
-    const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    scene.add(new THREE.AmbientLight(0xffffff, 2));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 3);
     dirLight.position.set(3, 5, 2);
     scene.add(dirLight);
 
@@ -138,7 +138,7 @@ const Ben10Page = () => {
     <div style={{ color: 'white', position: 'relative' }}>
       {/* Título principal */}
       <div className="container py-4 text-center">
-        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#297f00' }}>BEN 10</h1>
+        <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '20px', color: '#95EB2F' }}>BEN 10</h1>
       </div>
 
       {/* Contenedor 3D */}
@@ -208,17 +208,17 @@ const Ben10Page = () => {
 </div>
 
       {/* Galería de imágenes */}
-      <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: '#95EB2F' }}>
         <h2>Galería del personaje</h2>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', marginTop: '20px' }}>
           <img src="/Imagenes/Ben10-1.jpg" alt="Ben 10 imagen 1" className="gallery-image" />
           <img src="/Imagenes/Ben10-2.webp" alt="Ben 10 imagen 2" className="gallery-image" />
-          <img src="/Imagenes/Ben10-3.jpg" alt="Ben 10 imagen 3" className="gallery-image" />
+          <img src="/Imagenes/Ben10-3.gif" alt="Ben 10 imagen 3" className="gallery-image" />
         </div>
       </div>
 
       {/* Frases icónicas de Ben 10 */}
-<div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
+<div className="container text-center" style={{ marginTop: '40px', color: '#95EB2F' }}>
   <h2>Frases icónicas</h2>
   <div style={{
     display: 'flex',
@@ -244,14 +244,14 @@ const Ben10Page = () => {
 </div>
 
       {/* Información de la serie */}
-      <div className="container text-center" style={{ marginTop: '40px', color: '#297f00' }}>
+      <div className="container text-center" style={{ marginTop: '40px', color: '#95EB2F' }}>
         <h2>Serie y Producción</h2>
       </div>
       <div className="container py-4">
         <p style={{ fontSize: '1.1rem' }}>
           La historia original de Ben 10, comúnmente llamada "Ben 10 clásico", sigue a Ben Tennyson...
         </p>
-        <h4 style={{ marginTop: '20px', color: '#297f00' }}>Producción</h4>
+        <h4 style={{ marginTop: '20px', color: '#95EB2F' }}>Producción</h4>
         <ul style={{ fontSize: '1.05rem', listStyleType: 'square', marginLeft: '20px' }}>
           <li><strong>Creadores:</strong> "Man of Action" (Duncan Rouleau, Joe Casey, Joe Kelly, Steven T. Seagle)</li>
           <li><strong>Estudio:</strong> Cartoon Network Studios</li>
