@@ -33,7 +33,7 @@ const GameCanvas = () => {
 
     // === FONDO CON IMAGEN ===
     const textureLoader = new THREE.TextureLoader();
-    textureLoader.load('/img/fondo-game.jpeg', (texture) => {
+    textureLoader.load('/img/nuevo-fondo-game.png', (texture) => {
       scene.background = texture;
     });
 
@@ -158,14 +158,6 @@ const handleKeyUp = (event: KeyboardEvent) => { //Se va a ejercutar cuando el ju
 
 window.addEventListener('keydown', handleKeyDown);
 window.addEventListener('keyup', handleKeyUp);
-
-
-
-
-
-
-
-
 
 
 

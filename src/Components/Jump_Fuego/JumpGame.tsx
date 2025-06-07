@@ -31,7 +31,8 @@ const Jump = () => {
 
     // Fondo
     const textureLoader = new THREE.TextureLoader();
-    textureLoader.load('/img/fondo-game.jpeg', (texture) => {
+    
+    textureLoader.load('/img/background-desierto.jpg', (texture) => {
       scene.background = texture;
     });
 
@@ -55,7 +56,16 @@ const Jump = () => {
     // Obstáculos
     const obstacles: THREE.Mesh[] = [];
     const obstacleGeometry = new THREE.BoxGeometry(0.5, 1.5, 1);
-    const obstacleMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+    const wallTexture = new THREE.TextureLoader().load('/img/muro.jpg');
+
+    wallTexture.wrapS = THREE.RepeatWrapping;
+    wallTexture.wrapT = THREE.RepeatWrapping;
+    wallTexture.repeat.set(2,4);//ajuste de como se quiere que se repita la textura
+
+    const obstacleMaterial = new THREE.MeshStandardMaterial({
+      map: wallTexture, // Textura aplicada 
+      color:'#EA9A53'
+    });
 
     let lastObstacleX = 6;
 
@@ -93,6 +103,12 @@ const Jump = () => {
       }, 1000);
     };
 
+    // Iluminación
+        scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+        const dirLight = new THREE.DirectionalLight(0xffffff, 3);
+        dirLight.position.set(2, 1, 2);
+        scene.add(dirLight);
+
     // Jugador
     let player: THREE.Object3D = new THREE.Mesh();
 
@@ -101,8 +117,8 @@ const Jump = () => {
       '/3DModels/Fuego_Game.glb',
       (gltf) => {
         player = gltf.scene;
-        player.scale.set(1, 1, 1);
-        player.position.set(-2, -2, 0);
+        player.scale.set(1.5, 1.5, 1.5);
+        player.position.set(-2, -2.8, 0);
         player.rotation.y = Math.PI / 4; // rotación tipo 3/4
         player.traverse((child) => {
           if ((child as THREE.Mesh).isMesh) {
@@ -119,9 +135,9 @@ const Jump = () => {
 
     // Lógica de salto
     let isJumping = false;
-    let velocity = 0;
+    let velocity = 2;
     const gravity = -0.015;
-    const jumpForce = 0.28;
+    const jumpForce = 0.30;
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.code === 'Space' && !isJumping) {
@@ -149,8 +165,8 @@ const Jump = () => {
       if (player && isJumping) {
         player.position.y += velocity;
         velocity += gravity;
-        if (player.position.y <= -2) {
-          player.position.y = -2;
+        if (player.position.y <= -2.8) {
+          player.position.y = -2.8;
           isJumping = false;
           velocity = 0;
         }
